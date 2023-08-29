@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import LogoPath from '@/assets/colorful.svg';
+import Loader from '@/components/loader/Loader';
 
 import styles from './Auth.module.scss';
 
