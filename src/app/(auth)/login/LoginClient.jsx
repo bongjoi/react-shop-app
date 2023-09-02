@@ -29,53 +29,56 @@ const LoginClient = () => {
   const signInWithGoogle = () => {};
 
   return (
-    <section className={styles.page}>
-      <div className={styles.container}>
-        <h1 className={styles.logo}>
-          <Image priority src={LogoPath} alt="logo" />
-        </h1>
+    <>
+      {isLoading && <Loader />}
+      <section className={styles.page}>
+        <div className={styles.container}>
+          <h1 className={styles.logo}>
+            <Image priority src={LogoPath} alt="logo" />
+          </h1>
 
-        <form className={styles.form} onSubmit={loginUser}>
-          {/* Input */}
-          <Input
-            email
-            icon="letter"
-            id="email"
-            name="email"
-            label="이메일"
-            placeholder="아이디(이메일)"
-            className={styles.control}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <form className={styles.form} onSubmit={loginUser}>
+            {/* Input */}
+            <Input
+              email
+              icon="letter"
+              id="email"
+              name="email"
+              label="이메일"
+              placeholder="아이디(이메일)"
+              className={styles.control}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <Input
-            password
-            icon="lock"
-            id="password"
-            name="password"
-            label="비밀번호"
-            placeholder="비밀번호"
-            className={styles.control}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+            <Input
+              password
+              icon="lock"
+              id="password"
+              name="password"
+              label="비밀번호"
+              placeholder="비밀번호"
+              className={styles.control}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <div className={styles.group}>
-            {/* 자동 로그인, 비밀번호 수정 */}
-            자동 로그인, 비밀번호 수정
-          </div>
-          <div className={styles.buttonGroup}>
-            {/* Button */}
-            Button
-            <div>
+            <div className={styles.group}>
+              {/* 자동 로그인, 비밀번호 수정 */}
+              자동 로그인, 비밀번호 수정
+            </div>
+            <div className={styles.buttonGroup}>
               {/* Button */}
               Button
+              <div>
+                {/* Button */}
+                Button
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-    </section>
+          </form>
+        </div>
+      </section>
+    </>
   );
 };
 
