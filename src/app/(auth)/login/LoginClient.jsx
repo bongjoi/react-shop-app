@@ -8,12 +8,13 @@ import Loader from '@/components/loader/Loader';
 import Input from '@/components/input/Input';
 
 import styles from './Auth.module.scss';
+import AutoSignInCheckbox from '@/components/autoSignInCheckbox/AutoSignInCheckbox';
 
 const LoginClient = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isAuthLogin, setIsAuthLogin] = useState(false);
+  const [isAutoLogin, setIsAutoLogin] = useState(false);
 
   const router = useRouter();
 
@@ -65,7 +66,10 @@ const LoginClient = () => {
 
             <div className={styles.group}>
               {/* 자동 로그인, 비밀번호 수정 */}
-              자동 로그인, 비밀번호 수정
+              <AutoSignInCheckbox
+                checked={isAutoLogin}
+                onChange={(e) => setIsAutoLogin(e.target.checked)}
+              />
             </div>
             <div className={styles.buttonGroup}>
               {/* Button */}
