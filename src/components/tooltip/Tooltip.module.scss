@@ -1,0 +1,66 @@
+.tooltip {
+  padding: 0.5em 0.75em;
+  position: absolute;
+  min-width: 225px;
+  height: 100%;
+  background: hsl(0, 0%, 96%);
+  border-radius: 2px;
+  font-size: 10px;
+  color: #555555;
+
+  &::before {
+    content: '';
+    position: absolute;
+    border: 5px solid #f4f4f4;
+  }
+}
+
+.orientation {
+  &Top {
+    &::before {
+      top: -10px;
+
+      border: {
+        right-color: transparent;
+        left-color: transparent;
+        top-color: transparent;
+      }
+    }
+  }
+
+  &Right {
+    &::before {
+      right: -10px;
+
+      border: {
+        top-color: transparent;
+        bottom-color: transparent;
+        right-color: transparent;
+      }
+    }
+  }
+
+  &Bottom {
+    &::before {
+      bottom: -10px;
+
+      border: {
+        right-color: transparent;
+        left-color: transparent;
+        bottom-color: transparent;
+      }
+    }
+  }
+
+  &Left {
+    &::before {
+      left: -10px;
+
+      border: {
+        left-color: transparent;
+        top-color: transparent;
+        bottom-color: transparent;
+      }
+    }
+  }
+}

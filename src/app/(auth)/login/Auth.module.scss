@@ -7,8 +7,8 @@
     width: 576px;
 
     .logo {
-      text-align: center;
       margin-bottom: 50px;
+      text-align: center;
     }
 
     .form {
@@ -22,14 +22,14 @@
       }
 
       .group {
+        margin-top: 2px;
         display: flex;
         justify-content: space-between;
-        margin-top: 2px;
 
         .findLink {
+          font-size: 1.4rem;
           color: var(--color-primary);
           text-decoration: none;
-          font-size: 1.4rem;
         }
 
         .findLinkArrow {
