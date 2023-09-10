@@ -1,0 +1,25 @@
+.page {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  .container {
+    .form {
+      padding: 2rem;
+      display: flex;
+      flex-flow: column;
+      border: 1px solid #ccc;
+      box-shadow: var(--box-shadow);
+
+      .control {
+        margin-bottom: 20px;
+      }
+
+      .links {
+        margin-top: 10px;
+        font-size: 1.3rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}
