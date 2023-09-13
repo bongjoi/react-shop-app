@@ -1,5 +1,7 @@
 'use client';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +10,7 @@ import Loader from '@/components/loader/Loader';
 import Input from '@/components/input/Input';
 import Button from '@/components/button/Button';
 import Divider from '@/components/divider/Divider';
+import { auth } from '@/firebase/firebase';
 
 import styles from '../login/Auth.module.scss';
 
@@ -21,7 +24,28 @@ const RegisterClient = () => {
 
   const registerUser = (e) => {
     e.preventDefault();
+
+    if (password !== cPassword) {
+      return toast.error('비밀번호가 일치하지 않습니다.');
+    }
+
     setIsLoading(true);
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+
+        setIsLoading(false);
+
+        toast.success('등록 성공...');
+
+        router.push('/login');
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -62,8 +86,8 @@ const RegisterClient = () => {
             <Input
               password
               icon="lock"
-              id="password"
-              name="password"
+              id="cPassword"
+              name="cPassword"
               label="비밀번호 확인"
               placeholder="비밀번호 확인"
               className={styles.control}
