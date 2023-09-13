@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -27,6 +28,7 @@ const LoginClient = () => {
 
   const loginUser = (e) => {
     e.preventDefault();
+    toast.info('성공!');
     setIsLoading(true);
   };
 
