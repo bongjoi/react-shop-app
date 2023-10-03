@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 
+import StoreProvider from '@/redux/provider';
 import ToastProvider from '@/components/toastProvider/ToastProvider';
 import Header from '@/layouts/header/Header';
 import Footer from '@/layouts/footer/Footer';
@@ -17,10 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastProvider />
-        <Header />
-        {children}
-        <Footer />
+        <StoreProvider>
+          <ToastProvider />
+          <Header />
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
