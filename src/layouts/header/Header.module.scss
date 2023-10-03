@@ -1,0 +1,29 @@
+.loginBar {
+  background: #f3f3f3;
+
+  .list {
+    margin: 0 auto;
+    padding: 0.5rem 0.4rem;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 102rem;
+    list-style: none;
+
+    .item:nth-child(n + 4) {
+      order: -1;
+    }
+
+    .item:first-child {
+      margin-left: auto;
+    }
+
+    a {
+      padding: 0.5rem 0.4rem;
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
