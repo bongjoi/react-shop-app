@@ -1,0 +1,252 @@
+.innerHeader {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: auto 24.6rem 1fr auto auto;
+  grid-template-rows: 7.4rem 4.2rem;
+  grid-template-areas:
+    'buttonCategory brand searchForm myCoupang cart'
+    'buttonCategory typeNavigation typeNavigation myCoupang cart';
+  width: 102rem;
+
+  .brand {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 4rem;
+    padding-right: 3rem;
+    grid-area: brand;
+    align-self: end;
+  }
+
+  .buttonCategory {
+    padding: 4.2rem 0 0 0;
+    grid-area: buttonCategory;
+    width: 11rem;
+    height: 11.6rem;
+    background: var(--color-primary) url('../../assets/hamburger.svg') no-repeat
+      50% 3rem;
+    border: 0;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: var(--color-white);
+  }
+
+  .searchForm {
+    grid-area: searchForm;
+    align-self: end;
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .searchFormWrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      height: 4rem;
+      border: 2px solid var(--color-primary);
+
+      .formSelect {
+        position: relative;
+        height: 100%;
+        border-right: 1px solid var(--light-gray);
+
+        select {
+          padding-left: 1.2rem;
+          width: 13.5rem;
+          appearance: none;
+          height: 100%;
+          border: 0;
+          font-size: 1.2rem;
+          line-height: 1.2;
+          color: var(--dark-gray);
+        }
+
+        .iconDown {
+          position: absolute;
+          top: 50%;
+          right: 1rem;
+          transform: translateY(-50%);
+          pointer-events: none;
+        }
+      }
+
+      .formInput {
+        flex-grow: 1;
+        height: 100%;
+
+        input {
+          padding: 1rem 1rem 1.3rem;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+
+        input::placeholder {
+          font-size: 1.2rem;
+          line-height: 1.2;
+          color: var(--dark-gray);
+        }
+      }
+
+      .searchButton,
+      .voiceSearchButton {
+        margin-right: 1rem;
+        padding: 0;
+        width: 3rem;
+        height: 3rem;
+        border: 0;
+      }
+
+      .searchButton {
+        order: 1;
+        background: url('../../assets/search.svg') no-repeat 50% 50%;
+      }
+
+      .voiceSearchButton {
+        background: url('../../assets/mic.svg') no-repeat 50% 50%;
+      }
+    }
+  }
+
+  .button {
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .myCoupang {
+    margin-left: 0.6rem;
+    position: relative;
+    grid-area: myCoupang;
+    align-self: center;
+    font-size: 1.2rem;
+    line-height: 1.2;
+
+    .myCoupangButton {
+      padding: 3rem 0 0 0;
+      width: 5rem;
+      height: 6rem;
+      background: transparent url('../../assets/my-coupang.svg') no-repeat 50%
+        0.5rem;
+    }
+
+    .myCoupangList {
+      margin: 0;
+      padding: 2rem 1.6rem;
+      padding-left: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+      flex-flow: column nowrap;
+      background-color: var(--color-white);
+      border: 1px solid var(--light-gray);
+      list-style: none;
+
+      li {
+        margin: 0.2rem 0;
+
+        a {
+          padding: 0.4rem;
+          display: block;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .myCoupangList::before,
+    .myCoupangList::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .myCoupangList::before {
+      top: -0.9rem;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 8px solid var(--light-gray);
+    }
+
+    .myCoupangList::after {
+      top: -0.8rem;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 8px solid var(--color-white);
+    }
+  }
+
+  .cart {
+    margin-left: 0.6rem;
+    position: relative;
+    grid-area: cart;
+    align-self: center;
+    font-size: 1.2rem;
+    line-height: 1.2;
+
+    .cartButtonWrapper {
+      position: relative;
+
+      .cartButton {
+        padding: 3rem 0 0 0;
+        width: 5rem;
+        height: 6rem;
+        background: url('../../assets/cart.svg') no-repeat 50% 0.5rem;
+      }
+
+      .cartProductCount {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1.8rem;
+        height: 1.8rem;
+        background: var(--color-primary);
+        border-radius: 50%;
+        color: var(--color-white);
+        text-align: center;
+      }
+    }
+  }
+
+  .typeNavigation {
+    grid-area: typeNavigation;
+    align-self: center;
+  }
+
+  .typeNavigationList {
+    margin: 0 0 0 3.6rem;
+    padding-left: 0;
+    list-style: none;
+    font-size: 0;
+
+    li {
+      margin-left: 0.2rem;
+      display: inline-block;
+
+      .badgeRocket {
+        margin-left: 0.4rem;
+      }
+
+      .badgeNew {
+        margin-left: 0.4rem;
+      }
+
+      a {
+        padding: 0.6rem 1.4rem;
+        display: inline-block;
+        font-size: 1.2rem;
+        line-height: 1.2;
+      }
+    }
+
+    li:first-child {
+      margin-left: 0;
+    }
+  }
+}
